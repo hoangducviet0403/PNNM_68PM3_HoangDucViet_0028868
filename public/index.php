@@ -1,3 +1,4 @@
 <?php
-require_once __DIR__ . "/../app/core/App.php";
-$app = new App();
+require_once '../app/core/App.php';
+$myApp = new App();
+?>
