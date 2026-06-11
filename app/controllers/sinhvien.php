@@ -1,18 +1,13 @@
 <?php
-
 require_once '../app/core/Controller.php';
 
 class sinhvien extends Controller {
 
     public function index()
     {
-        // 1. Gọi model 'sinhvienModel' dậy làm việc
         $sinhvienModel = $this->model('sinhvienModel');
-
-        // 2. Chạy hàm lấy 22 sinh viên mồi dưới Database lên
         $sinhviens = $sinhvienModel->getAllSinhVien();
 
-        // 3. Bắn cục dữ liệu sang file giao diện HTML/CSS để hiển thị
         $this->view('sinhvien/index', [
             'sinhviens' => $sinhviens
         ]);
@@ -20,7 +15,22 @@ class sinhvien extends Controller {
 
     public function create()
     {
-        require_once '../app/views/sinhvien/create.php';
+        $this->view('sinhvien/create');
+    }
+
+    public function store()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $hoten = $_POST['hoten'] ?? '';
+            $gioitinh = $_POST['gioitinh'] ?? '';
+            $mssv = $_POST['mssv'] ?? '';
+
+            $sinhvienModel = $this->model('sinhvienModel');
+            $sinhvienModel->insertSinhVien($hoten, $gioitinh, $mssv);
+
+            header('Location: /PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/index');
+            exit();
+        }
     }
 }
 ?>
