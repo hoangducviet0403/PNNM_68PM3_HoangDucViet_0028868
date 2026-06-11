@@ -6,13 +6,30 @@ class sinhvien extends Controller {
     public function index()
     {
         $sinhvienModel = $this->model('sinhvienModel');
-        $sinhviens = $sinhvienModel->getAllSinhVien();
+
+        $limit = 5;
+
+        $page = $_GET['page'] ?? 1;
+        $page = (int)$page;
+
+        if ($page < 1) {
+            $page = 1;
+        }
+
+        $offset = ($page - 1) * $limit;
+
+        $totalSinhVien = $sinhvienModel->countSinhVien();
+        $totalPage = ceil($totalSinhVien / $limit);
+
+        $sinhviens = $sinhvienModel->getSinhVienPaging($limit, $offset);
 
         $this->view('sinhvien/index', [
-            'sinhviens' => $sinhviens
+            'sinhviens' => $sinhviens,
+            'page' => $page,
+            'totalPage' => $totalPage
         ]);
     }
-
+    
     public function create()
     {
         $this->view('sinhvien/create');
