@@ -1,7 +1,7 @@
-<?php require_once '../app/views/partial/header.php'; ?>
+<?php require_once __DIR__ . '/../partial/header.php'; ?>
 
 <main>
-    <?php require_once $view; ?>
+    <?php require_once $content; ?>
 </main>
 
-<?php require_once '../app/views/partial/footer.php'; ?>
+<?php require_once __DIR__ . '/../partial/footer.php'; ?>
