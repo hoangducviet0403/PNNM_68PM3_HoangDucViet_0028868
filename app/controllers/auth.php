@@ -23,12 +23,12 @@ class auth {
                     setcookie('username', $username, time() + 3600, '/');
                 }
 
-                header("Location: http://localhost/PNNM_68PM3_HoangDucViet_0028868/public/home/index");
+                header("Location: /PNNM_68PM3_HoangDucViet_0028868/public/home/index");
                 exit();
 
             } else {
 
-                header("Location: http://localhost/PNNM_68PM3_HoangDucViet_0028868/public/auth/login?error=1");
+                header("Location: /PNNM_68PM3_HoangDucViet_0028868/public/auth/login?error=1");
                 exit();
             }
         }
@@ -48,7 +48,7 @@ class auth {
 
         setcookie('username', '', time() - 3600, '/');
 
-        header("Location: http://localhost/PNNM_68PM3_HoangDucViet_0028868/public/auth/login");
+        header("Location: /PNNM_68PM3_HoangDucViet_0028868/public/auth/login");
         exit();
     }
 }
