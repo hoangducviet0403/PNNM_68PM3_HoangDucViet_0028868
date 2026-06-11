@@ -29,5 +29,29 @@ class sinhvienModel {
             ':gioitinh' => $gioitinh
         ]);
     }
+
+    public function getSinhVienPaging($limit, $offset)
+    {
+        $sql = "SELECT * FROM sinhvien LIMIT :limit OFFSET :offset";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function countSinhVien()
+    {
+        $sql = "SELECT COUNT(*) AS total FROM sinhvien";
+
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $result['total'];
+    }
 }
 ?>
