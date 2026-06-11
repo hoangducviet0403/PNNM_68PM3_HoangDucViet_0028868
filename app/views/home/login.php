@@ -9,7 +9,7 @@
 
     <h1>Đăng nhập</h1>
 
-    <form action="http://localhost/PNNM_68PM3_HoangDucViet_0028868/public/auth/login" method="post">
+    <form action="/PNNM_68PM3_HoangDucViet_0028868/public/auth/login" method="post">
         <div>
             <label for="username">Username</label>
             <input type="text" id="username" name="username">
