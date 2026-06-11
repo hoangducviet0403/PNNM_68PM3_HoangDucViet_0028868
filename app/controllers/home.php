@@ -1,19 +1,23 @@
 <?php
-class home
+require_once '../app/core/Controller.php';
+require_once '../app/middlewares/middleware.php';
+
+class home extends Controller
 {
-  public function index()
-  {
-    echo "Đây là trang chủ";
-  }
+    public function __construct()
+    {
+        $middleware = new middleware();
+        $middleware->checklogin();
+    }
 
-  public function about()
-  {
-    echo "Đây là trang giới thiệu";
-  }
-  public function login()
-  {
-    require_once '../app/views/home/login.php';
+    public function index()
+    {
+        $this->view('home/index');
+    }
 
-  }
+    public function about()
+    {
+        $this->view('home/about');
+    }
 }
 ?>
