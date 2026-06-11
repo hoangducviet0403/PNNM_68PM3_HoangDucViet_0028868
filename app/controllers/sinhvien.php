@@ -29,7 +29,7 @@ class sinhvien extends Controller {
             'totalPage' => $totalPage
         ]);
     }
-    
+
     public function create()
     {
         $this->view('sinhvien/create');
@@ -48,6 +48,44 @@ class sinhvien extends Controller {
             header('Location: /PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/index');
             exit();
         }
+    }
+
+    public function edit($mssv)
+    {
+        $sinhvienModel = $this->model('sinhvienModel');
+
+        $sinhvien = $sinhvienModel->getSinhVienByMssv($mssv);
+
+        $this->view('sinhvien/edit', [
+            'sinhvien' => $sinhvien
+        ]);
+    }
+
+    public function update()
+    {
+        if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+            $sinhvienModel = $this->model('sinhvienModel');
+
+            $sinhvienModel->updateSinhVien(
+                $_POST['mssv'],
+                $_POST['hoten'],
+                $_POST['gioitinh']
+            );
+
+            header('Location: /PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/index');
+            exit();
+        }
+    }
+
+    public function delete($mssv)
+    {
+        $sinhvienModel = $this->model('sinhvienModel');
+
+        $sinhvienModel->deleteSinhVien($mssv);
+
+        header('Location: /PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/index');
+        exit();
     }
 }
 ?>
