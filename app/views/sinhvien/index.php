@@ -86,6 +86,7 @@
         <th>MSSV</th>
         <th>Họ tên</th>
         <th>Giới tính</th>
+        <th>Thao tác</th>
     </tr>
 
     <?php foreach($sinhviens as $sv): ?>
@@ -93,6 +94,18 @@
         <td><?= $sv['mssv'] ?></td>
         <td><?= $sv['hoten'] ?></td>
         <td><?= $sv['gioitinh'] ?></td>
+        <td>
+            <a href="/PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/edit/<?= $sinhvien['mssv'] ?>">
+                Sửa
+            </a>
+
+            |
+
+            <a href="/PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/delete/<?= $sinhvien['mssv'] ?>"
+            onclick="return confirm('Bạn có chắc muốn xóa sinh viên này không?')">
+                Xóa
+            </a>
+        </td>
     </tr>
     <?php endforeach; ?>
     <?php endforeach; ?>
