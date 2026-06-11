@@ -98,5 +98,15 @@
     <?php endforeach; ?>
     </table>
     
+    <div class="pagination">
+    <?php for ($i = 1; $i <= $totalPage; $i++): ?>
+        <a
+            href="/PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/index?page=<?= $i ?>"
+            class="<?= ($i == $page) ? 'active' : '' ?>"
+        >
+            <?= $i ?>
+        </a>
+    <?php endfor; ?>
+    </div>
 </body>
 </html>
