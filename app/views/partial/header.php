@@ -96,6 +96,30 @@
             background:#1d4ed8;
         }
 
+        .pagination {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .pagination a {
+            display: inline-block;
+            padding: 8px 13px;
+            margin: 0 4px;
+            background: #e5e7eb;
+            color: #111827;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .pagination a:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        .pagination a.active {
+            background: #2563eb;
+            color: white;
+        }
     </style>
 
 </head>
