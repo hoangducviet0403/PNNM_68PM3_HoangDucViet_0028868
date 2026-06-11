@@ -83,20 +83,18 @@
     <h1>Danh sách sinh viên</h1>
     <table>
     <tr>
-        <th> STT </th>
-        <th> Mã sinh viên </th>
-        <th> Họ tên </th>
-        <th> Lớp </th>
-        <th> Số điện thoại </th>
+        <th>MSSV</th>
+        <th>Họ tên</th>
+        <th>Giới tính</th>
     </tr>
-    <?php foreach ($sinhviens as $index => $sinhvien): ?>
-        <tr>
-            <td> <?php echo $sinhvien['stt']; ?> </td>
-            <td> <?php echo $sinhvien['mssv']; ?> </td>
-            <td> <?php echo $sinhvien['hoten']; ?> </td>
-            <td> <?php echo $sinhvien['lop']; ?> </td>
-            <td> <?php echo $sinhvien['sdt']; ?> </td>
-        </tr>
+
+    <?php foreach($sinhviens as $sv): ?>
+    <tr>
+        <td><?= $sv['mssv'] ?></td>
+        <td><?= $sv['hoten'] ?></td>
+        <td><?= $sv['gioitinh'] ?></td>
+    </tr>
+    <?php endforeach; ?>
     <?php endforeach; ?>
     </table>
     
