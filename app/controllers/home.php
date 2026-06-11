@@ -1,6 +1,6 @@
 <?php
 require_once '../app/core/Controller.php';
-require_once '../app/middlewares/middleware.php';
+require_once '../app/middleware.php';
 
 class home extends Controller
 {
