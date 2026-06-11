@@ -12,10 +12,10 @@ class Controller {
     public function view($view, $data = [])
     {
         extract($data);
-    
-        $content = "../app/views/" . $view . ".php";
-    
-        require_once "../app/views/layouts/master.php";
+
+        $content = __DIR__ . '/../views/' . $view . '.php';
+
+        require_once __DIR__ . '/../views/layout/master.php';
     }
 }
 
