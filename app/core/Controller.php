@@ -9,9 +9,13 @@ class Controller {
         return new $model();
     }
 
-    public function view($viewName, $data = []) {
+    public function view($view, $data = [])
+    {
         extract($data);
-        require_once "../app/views/" . $viewName . ".php";
+    
+        $content = "../app/views/$view.php";
+    
+        require_once "../app/views/layouts/master.php";
     }
 }
 
