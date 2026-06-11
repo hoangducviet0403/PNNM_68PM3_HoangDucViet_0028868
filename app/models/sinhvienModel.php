@@ -53,5 +53,41 @@ class sinhvienModel {
 
         return $result['total'];
     }
+
+    public function getSinhVienByMssv($mssv)
+    {
+        $sql = "SELECT * FROM sinhvien WHERE mssv = :mssv";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([
+            ':mssv' => $mssv
+        ]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateSinhVien($mssv, $hoten, $gioitinh)
+    {
+        $sql = "UPDATE sinhvien 
+                SET hoten = :hoten, gioitinh = :gioitinh 
+                WHERE mssv = :mssv";
+
+        $stmt = $this->conn->prepare($sql);
+
+        return $stmt->execute([
+            ':mssv' => $mssv,
+            ':hoten' => $hoten,
+            ':gioitinh' => $gioitinh
+        ]);
+    }
+
+    public function deleteSinhVien($mssv)
+    {
+        $sql = "DELETE FROM sinhvien WHERE mssv = :mssv";
+        $stmt = $this->conn->prepare($sql);
+
+        return $stmt->execute([
+            ':mssv' => $mssv
+        ]);
+    }
 }
 ?>
