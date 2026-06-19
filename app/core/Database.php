@@ -2,7 +2,7 @@
 
 class ConnectDB {
     private static $host = 'localhost';
-    private static $db_name = '68PM34';
+    private static $db_name = '68pm34';
     private static $username = 'root';
     private static $password = '';
     public static $conn;
