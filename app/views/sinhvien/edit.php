@@ -1,42 +1,52 @@
-<h1>Sửa sinh viên</h1>
 
-<form action="/PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/update" method="POST">
+<h1 class="page-title">Sửa sinh viên</h1>
 
-    <p>
-        <label>MSSV</label><br>
-        <input type="text" name="mssv" value="<?= $sinhvien['mssv'] ?>" readonly>
-    </p>
+<div class="card form-box">
+    <form action="/PNNM_68PM3_HoangDucViet_0028868/public/sinhvien/update" method="POST">
 
-    <br>
+        <p>
+            <label>MSSV</label><br>
+            <input class="form-control" type="text" name="mssv" value="<?= $sinhvien['mssv'] ?>" readonly>
+        </p>
 
-    <p>
-        <label>Họ tên</label><br>
-        <input type="text" name="hoten" value="<?= $sinhvien['hoten'] ?>" required>
-    </p>
+        <br>
 
-    <br>
+        <p>
+            <label>Họ tên</label><br>
+            <input class="form-control" type="text" name="hoten" value="<?= $sinhvien['hoten'] ?>" required>
+        </p>
 
-    <p>
-        <label>Giới tính</label><br>
+        <br>
 
-        <input type="radio" name="gioitinh" value="Nam"
-            <?= $sinhvien['gioitinh'] == 'Nam' ? 'checked' : '' ?>>
-        Nam
+        <p>
+            <label>Giới tính</label><br>
 
-        <input type="radio" name="gioitinh" value="Nữ"
-            <?= $sinhvien['gioitinh'] == 'Nữ' ? 'checked' : '' ?>>
-        Nữ
-    </p>
+            <input type="radio" name="gioitinh" value="Nam"
+                <?= $sinhvien['gioitinh'] == 'Nam' ? 'checked' : '' ?>>
+            Nam
 
-    <br>
+            <input  type="radio" name="gioitinh" value="Nữ"
+                <?= $sinhvien['gioitinh'] == 'Nữ' ? 'checked' : '' ?>>
+            Nữ
+        </p>
 
-     <p>
-        <label>Lớp</label><br>
-        <input type="text" name="lop" value="<?= $sinhvien['lop'] ?>" required>
-    </p>
+        <br>
 
-    <br>
-    
-    <button type="submit">Cập nhật</button>
+        <p>
+            <label>Lớp</label><br>
+            <select class="form-control" name="lophoc_id" required>
+                <?php foreach ($lophocs as $lop): ?>
+                    <option value="<?php echo $lop['id']; ?>"
+                        <?php echo ($sinhvien['lophoc_id'] == $lop['id']) ? 'selected' : ''; ?>>
+                        <?php echo $lop['malop'] . ' - ' . $lop['tenlop']; ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+        </p>
 
-</form>
+        <br>
+        
+        <button class="btn btn-success" type="submit">Cập nhật</button>
+
+    </form>
+</div>
