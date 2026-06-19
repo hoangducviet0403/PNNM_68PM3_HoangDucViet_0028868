@@ -1,33 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đăng nhập</title>
-</head>
-<body>
+<div class="login-wrapper">
+    <div class="login-card">
+        <h1>Đăng nhập</h1>
 
-    <h1>Đăng nhập</h1>
+        <?php if (isset($_GET['error'])): ?>
+            <div class="alert-error">
+                Sai tên đăng nhập hoặc mật khẩu
+            </div>
+        <?php endif; ?>
 
-    <form action="/PNNM_68PM3_HoangDucViet_0028868/public/auth/login" method="post">
-        <div>
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username">
-        </div>
-        <div>
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password">
-        </div>
-        <div>
-            <input type="checkbox" id="remember" name="remember">
-            <label for="remember">Remember me</label>
-        </div>
-        <div>
-            <input type="submit" value="Login">
-        </div>
-    </form>
-    <?php if (isset($_GET['error']) && $_GET['error'] == 1) {
-        echo '<h3>Thông báo lỗi!</h3>';
-    } ?>
-</body>
-</html>
+        <form action="/PNNM_68PM3_HoangDucViet_0028868/public/auth/login" method="POST">
+            <div class="form-group">
+                <label>Tên đăng nhập</label>
+                <input class="form-control" type="text" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label>Mật khẩu</label>
+                <input class="form-control" type="password" name="password" required>
+            </div>
+
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" name="remember">
+                    Ghi nhớ đăng nhập
+                </label>
+            </div>
+
+            <button class="btn btn-primary" type="submit" style="width:100%;">
+                Đăng nhập
+            </button>
+        </form>
+    </div>
+</div>
