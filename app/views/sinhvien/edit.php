@@ -30,6 +30,13 @@
 
     <br>
 
+     <p>
+        <label>Lớp</label><br>
+        <input type="text" name="lop" value="<?= $sinhvien['lop'] ?>" required>
+    </p>
+
+    <br>
+    
     <button type="submit">Cập nhật</button>
 
 </form>
