@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="/PNNM_68PM3_HoangDucViet_0028868/public/css/style.css">
     <title><?= $title ?? 'Quản lý sinh viên' ?></title>
 
     <style>
